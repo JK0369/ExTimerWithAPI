@@ -1,5 +1,5 @@
 //
-//  PhotoService.swift
+//  PhotoTraits.swift
 //  ExTimer
 //
 //  Created by 김종권 on 2022/01/15.
@@ -8,32 +8,30 @@
 import RxSwift
 import RxCocoa
 
-// MARK: Type
+// MARK: Service
 protocol PhotoServiceType {
-  func getPhotoEveryFiveSeconds() -> Observable<Photo?>
+  static func getPhotoEveryFiveSeconds() -> Observable<Photo?>
 }
 
-// MARK: Implements
-class PhotoService: PhotoServiceType {
+private enum PhotoService: PhotoServiceType {
   private enum Time {
     static let periodSeconds = 5
   }
   
-  private var shouldUpdatePhoto: (Int) -> Bool = { currentSeconds in
+  private static var shouldUpdatePhoto: (Int) -> Bool = { currentSeconds in
     currentSeconds % Time.periodSeconds == 0 || currentSeconds == 1
   }
   
-  func getPhotoEveryFiveSeconds() -> Observable<Photo?> {
+  static func getPhotoEveryFiveSeconds() -> Observable<Photo?> {
     Observable<Int>
       .interval(.seconds(1), scheduler: MainScheduler.asyncInstance)
       .map { $0 + 1 }
       .do(onNext: { print($0) })
       .filter(self.shouldUpdatePhoto)
-      .map { _ in Void() }
-      .map { [weak self] in self?.getPhoto() }
+      .map { _ in self.getPhoto() }
       .distinctUntilChanged()
   }
-  private func getPhoto() -> Photo? {
+  private static func getPhoto() -> Photo? {
     let photo1 = Photo(name: "img1")
     let photo2 = Photo(name: "img2")
     let photo3 = Photo(name: "img3")
@@ -41,4 +39,13 @@ class PhotoService: PhotoServiceType {
     let randomPhoto = photos.randomElement()
     return randomPhoto
   }
+}
+
+// MARK: Traits
+protocol PhotoTraits {
+  static var photoService: PhotoServiceType.Type { get }
+}
+
+extension PhotoTraits {
+  static var photoService: PhotoServiceType.Type { PhotoService.self }
 }

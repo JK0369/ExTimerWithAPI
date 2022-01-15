@@ -11,7 +11,7 @@ import Then
 import RxSwift
 import RxCocoa
 
-final class ViewController: UIViewController {
+final class ViewController: UIViewController, PhotoTraits {
   // MARK: UI
   private let photoImageView = UIImageView().then {
     $0.contentMode = .scaleAspectFill
@@ -23,17 +23,6 @@ final class ViewController: UIViewController {
   }
   
   private var disposeBag = DisposeBag()
-  private let photoSubject = BehaviorSubject<Photo?>(value: nil)
-  private var photoService: PhotoServiceType
-  
-  init(photoService: PhotoServiceType) {
-    self.photoService = photoService
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError()
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,7 +43,7 @@ final class ViewController: UIViewController {
       .bind { self.disposeBag = DisposeBag() }
       .disposed(by: self.disposeBag)
     
-    self.photoService.getPhotoEveryFiveSeconds()
+    Self.photoService.getPhotoEveryFiveSeconds()
       .bind { [weak self] in self?.photoImageView.image = $0?.image }
       .disposed(by: self.disposeBag)
   }

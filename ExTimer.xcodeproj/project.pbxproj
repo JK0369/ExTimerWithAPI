@@ -13,8 +13,7 @@
 		4A6427922792B69700A36F20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6427912792B69700A36F20 /* ViewController.swift */; };
 		4A6427972792B69800A36F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6427962792B69800A36F20 /* Assets.xcassets */; };
 		4A64279A2792B69800A36F20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6427982792B69800A36F20 /* LaunchScreen.storyboard */; };
-		4A6427A22792B75200A36F20 /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6427A12792B75200A36F20 /* VC2.swift */; };
-		4A6427A62792D87600A36F20 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6427A52792D87600A36F20 /* PhotoService.swift */; };
+		4A6427A62792D87600A36F20 /* PhotoTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6427A52792D87600A36F20 /* PhotoTraits.swift */; };
 		4A6427A82792DAFE00A36F20 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6427A72792DAFE00A36F20 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +25,7 @@
 		4A6427962792B69800A36F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A6427992792B69800A36F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A64279B2792B69800A36F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A6427A12792B75200A36F20 /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
-		4A6427A52792D87600A36F20 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		4A6427A52792D87600A36F20 /* PhotoTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTraits.swift; sourceTree = "<group>"; };
 		4A6427A72792DAFE00A36F20 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		AFDA4CC1B243FB1C3355BDC2 /* Pods-ExTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExTimer.debug.xcconfig"; path = "Target Support Files/Pods-ExTimer/Pods-ExTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		D8161621AFC632C339038B5D /* Pods-ExTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExTimer.release.xcconfig"; path = "Target Support Files/Pods-ExTimer/Pods-ExTimer.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,9 +68,8 @@
 				4A64278D2792B69700A36F20 /* AppDelegate.swift */,
 				4A64278F2792B69700A36F20 /* SceneDelegate.swift */,
 				4A6427912792B69700A36F20 /* ViewController.swift */,
-				4A6427A52792D87600A36F20 /* PhotoService.swift */,
+				4A6427A52792D87600A36F20 /* PhotoTraits.swift */,
 				4A6427A72792DAFE00A36F20 /* Photo.swift */,
-				4A6427A12792B75200A36F20 /* VC2.swift */,
 				4A6427962792B69800A36F20 /* Assets.xcassets */,
 				4A6427982792B69800A36F20 /* LaunchScreen.storyboard */,
 				4A64279B2792B69800A36F20 /* Info.plist */,
@@ -212,11 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6427A82792DAFE00A36F20 /* Photo.swift in Sources */,
-				4A6427A62792D87600A36F20 /* PhotoService.swift in Sources */,
+				4A6427A62792D87600A36F20 /* PhotoTraits.swift in Sources */,
 				4A6427922792B69700A36F20 /* ViewController.swift in Sources */,
 				4A64278E2792B69700A36F20 /* AppDelegate.swift in Sources */,
 				4A6427902792B69700A36F20 /* SceneDelegate.swift in Sources */,
-				4A6427A22792B75200A36F20 /* VC2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
