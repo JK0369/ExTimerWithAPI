@@ -14,10 +14,6 @@ protocol PhotoServiceType {
 }
 
 private enum PhotoService: PhotoServiceType {
-  private enum Time {
-    static let periodSeconds = 5
-  }
-  
   static func getPhotoEveryFiveSeconds() -> Observable<Photo?> {
     Observable<Int>
       .timer(.seconds(1), period: .seconds(5), scheduler: MainScheduler.asyncInstance)
