@@ -18,16 +18,9 @@ private enum PhotoService: PhotoServiceType {
     static let periodSeconds = 5
   }
   
-  private static var shouldUpdatePhoto: (Int) -> Bool = { currentSeconds in
-    currentSeconds % Time.periodSeconds == 0 || currentSeconds == 1
-  }
-  
   static func getPhotoEveryFiveSeconds() -> Observable<Photo?> {
     Observable<Int>
-      .interval(.seconds(1), scheduler: MainScheduler.asyncInstance)
-      .map { $0 + 1 }
-      .do(onNext: { print($0) })
-      .filter(self.shouldUpdatePhoto)
+      .timer(.seconds(1), period: .seconds(5), scheduler: MainScheduler.asyncInstance)
       .map { _ in self.getPhoto() }
       .distinctUntilChanged()
   }
